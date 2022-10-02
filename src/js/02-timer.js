@@ -28,6 +28,7 @@ function getSelectedDate() {
   if (selectedDate <= currentDate) {
     Notify.failure('Please choose a date in the future', {
       position: 'right-top',
+      timeout: 6000,
     });
     startBtnRef.setAttribute('disabled', 'true');
     return;
