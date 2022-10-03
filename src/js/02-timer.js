@@ -17,6 +17,10 @@ const flatpickrOptions = {
 
 const inputRef = document.querySelector('#datetime-picker');
 const startBtnRef = document.querySelector('button[data-start]');
+const days = document.querySelector('[data-days]');
+const hours = document.querySelector('[data-hours]');
+const minutes = document.querySelector('[data-minutes]');
+const seconds = document.querySelector('[data-seconds]');
 const flatpickredInputData = flatpickr(inputRef, flatpickrOptions);
 let selectedDate;
 
@@ -34,9 +38,10 @@ function getSelectedDate() {
     return;
   } else {
     startBtnRef.removeAttribute('disabled');
-    startBtnRef.addEventListener('click', onStartBtn);
   }
 }
+
+startBtnRef.addEventListener('click', onStartBtn);
 
 function onStartBtn() {
   startBtnRef.removeEventListener('click', onStartBtn);
@@ -55,11 +60,6 @@ function onStartBtn() {
 }
 
 function onChangeTimer(value) {
-  const days = document.querySelector('[data-days]');
-  const hours = document.querySelector('[data-hours]');
-  const minutes = document.querySelector('[data-minutes]');
-  const seconds = document.querySelector('[data-seconds]');
-
   days.textContent = value.days;
   hours.textContent = value.hours;
   minutes.textContent = value.minutes;
